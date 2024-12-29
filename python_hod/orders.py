@@ -3,7 +3,6 @@ from datetime import datetime
 from typing import Optional, List
 from .product import Product
 
-
 @dataclass
 class OrderItem:
     orderid: int
