@@ -6,6 +6,7 @@ from datetime import datetime
 from .customers import Customer
 from .product import Product
 from .orders import Order, OrderItem
+from functools import cache 
 
 class Sku(int):
     pass
@@ -158,6 +159,7 @@ class HOD:
                 self.order_items.append(order_item)
                 self.orders[order_id].items.append(order_item)
     
+    @cache
     def get_orders_from_customer_id(self, customer_id: int) -> List[Order]:
         return [order for order in self.orders.values() if order.customerid == customer_id]
                 
