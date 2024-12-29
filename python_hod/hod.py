@@ -162,6 +162,10 @@ class HOD:
     @cache
     def get_orders_from_customer_id(self, customer_id: int) -> List[Order]:
         return [order for order in self.orders.values() if order.customerid == customer_id]
+    
+    @cache
+    def get_orders_on_date(self, date: datetime.date) -> List[Order]:
+        return [order for order in self.orders.values() if order.ordered.date() == date]
                 
     
     
